@@ -5,4 +5,7 @@ construir site:
     - ls -ltra
     - pwd
     - whoami
-    - npm --version
+    - cd website
+    - ls -ltra
+    - npm install
+    - npm run build
