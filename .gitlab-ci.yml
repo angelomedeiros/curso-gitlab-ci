@@ -30,4 +30,5 @@ build site:
 deploy website:
   stage: build
   script:
-    - npx surge --protected ./website/build/curso-gitlab-ci --domain angelomedeiros-rc.surge.sh
+    - ls
+    - npx surge --project ./website/build/curso-gitlab-ci --domain angelomedeiros-rc.surge.sh
