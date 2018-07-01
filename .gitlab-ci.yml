@@ -28,7 +28,7 @@ build site:
     - npm run build
 
 deploy website:
-  stage: build
+  stage: deploy
   script:
     - ls
     - npx surge --project ./website/build/curso-gitlab-ci --domain angelomedeiros-rc.surge.sh
