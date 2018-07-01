@@ -44,6 +44,8 @@ const siteConfig = {
     {blog: true, label: 'Blog'},
   ],
 
+  // usePrism: ['jsx'],
+
   // If you have users set above, you add it here:
   users,
 
