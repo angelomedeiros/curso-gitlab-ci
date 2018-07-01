@@ -1,6 +1,0 @@
-construir site:
-  script:
-    - ls -ltra
-    - pwd
-    - whoami
-    - npm --version
