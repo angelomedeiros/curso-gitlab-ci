@@ -31,14 +31,26 @@ build site:
     - npm install
     - npm run build
 
-deploy website:
+deploy website-develop:
   stage: deploy
   script:
     - npx surge --project ./website/build/curso-gitlab-ci --domain angelomedeiros-rc.surge.sh
   after_script:
     - echo "Angelo Medeiros - after_script"
   environment:
-    name: staging
+    name: development
     url: http://angelomedeiros-rc.surge.sh
   only:
     - develop
+
+deploy website-master:
+  stage: deploy
+  script:
+    - npx surge --project ./website/build/curso-gitlab-ci --domain angelomedeiros.surge.sh
+  after_script:
+    - echo "Angelo Medeiros - after_script"
+  environment:
+    name: production
+    url: http://angelomedeiros.surge.sh
+  only:
+    - master
