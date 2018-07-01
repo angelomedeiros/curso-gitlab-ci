@@ -11,6 +11,10 @@ cache:
   paths:
     - ./website/build
 
+before_script:
+  - whoami
+  - echo "Angelo Medeiros"
+
 build site:
   stage: build
   artifacts:
@@ -30,6 +34,7 @@ build site:
 deploy website:
   stage: deploy
   script:
-    - env
-    - ls website
     - npx surge --project ./website/build/curso-gitlab-ci --domain angelomedeiros-rc.surge.sh
+  after_script:
+    name: staging
+    url: http://angelomedeiros-rc.surge.sh
