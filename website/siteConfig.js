@@ -21,7 +21,7 @@ const users = [
 ];
 
 const siteConfig = {
-  title: 'Curso Gitlab CI/CD' /* title for your website */,
+  title: 'Curso Gitlab CI' /* title for your website */,
   tagline: 'A website for testing',
   url: 'https://your-docusaurus-test-site.com' /* your website url */,
   baseUrl: '/' /* base url for your project */,
@@ -30,8 +30,8 @@ const siteConfig = {
   //   baseUrl: '/test-site/',
 
   // Used for publishing and more
-  projectName: 'test-site',
-  organizationName: 'facebook',
+  projectName: 'Curso CI',
+  organizationName: 'angelomedeiros',
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
@@ -48,13 +48,13 @@ const siteConfig = {
   users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/docusaurus.svg',
-  footerIcon: 'img/docusaurus.svg',
+  headerIcon: 'img/git-logo.png',
+  footerIcon: 'img/git-logo.png',
   favicon: 'img/favicon.png',
 
   /* colors for website */
   colors: {
-    primaryColor: '#2E8555',
+    primaryColor: '#6A2724',
     secondaryColor: '#205C3B',
   },
 
@@ -74,10 +74,11 @@ const siteConfig = {
   copyright:
     'Copyright © ' +
     new Date().getFullYear() +
-    ' Your Name or Your Company Name',
+    ' Curso Gitlab CI',
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks
+    // https://github.com/isagalaev/highlight.js/
     theme: 'default',
   },
 
@@ -91,6 +92,10 @@ const siteConfig = {
   ogImage: 'img/docusaurus.png',
   twitterImage: 'img/docusaurus.png',
 
+  facebookAppId: '1757339967635175',
+  facebookComments: true,
+  twitter: 'true',
+  twitterUsername: 'angeloomedeiros',
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
   //   repoUrl: 'https://github.com/facebook/test-site',

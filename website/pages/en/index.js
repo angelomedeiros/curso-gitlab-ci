@@ -103,16 +103,16 @@ const Features = props => (
   <Block layout="fourColumn">
     {[
       {
-        content: 'This is the content of my feature',
-        image: imgUrl('docusaurus.svg'),
+        content: 'Esse post abordará as principais features do ReactJs',
+        image: imgUrl('React-icon.svg'),
         imageAlign: 'top',
-        title: 'Feature One',
+        title: 'Introdução ao ReactJs',
       },
       {
-        content: 'The content of my second feature',
-        image: imgUrl('docusaurus.svg'),
+        content: 'Iremos agora avançar com o ReactJs e Firebase. O Firebase é uma plataforma móvel do Google que ajuda você a expandir seu negócio e desenvolver rapidamente apps de alta qualidade.',
+        image: imgUrl('react-firebase.svg'),
         imageAlign: 'top',
-        title: 'Feature Two',
+        title: 'Avançando com ReactJs + Firebase',
       },
     ]}
   </Block>
