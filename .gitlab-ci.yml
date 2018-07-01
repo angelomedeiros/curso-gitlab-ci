@@ -8,6 +8,8 @@ stages:
   - deploy
 
 construir site:
+  stage:
+    - build
   script:
     # - ls -ltra
     # - pwd
