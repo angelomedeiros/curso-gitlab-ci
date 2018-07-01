@@ -1,11 +1,17 @@
 image: node
 
+# Stages default quando não indicados: build, test e deploy
+
+stages:
+  - build
+  - test
+  - deploy
+
 construir site:
   script:
-    - ls -ltra
-    - pwd
-    - whoami
+    # - ls -ltra
+    # - pwd
+    # - whoami
     - cd website
-    - ls -ltra
     - npm install
     - npm run build
