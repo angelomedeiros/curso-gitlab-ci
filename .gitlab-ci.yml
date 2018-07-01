@@ -9,6 +9,9 @@ stages:
 
 construir site:
   stage: build
+  artifacts:
+    paths:
+      - ./website/build/curso-gitlab-ci
   script:
     # - ls -ltra
     # - pwd
