@@ -47,30 +47,36 @@ build site:
 
 deploy website-develop:
   stage: deploy
+  variables:
+    CNAME: angelomedeiros-rc.surge.sh
+    GIT_STRATEGY: none
   cache:
     key: site-package
     policy: pull
   script:
-    - npx surge --project ./website/build/curso-gitlab-ci --domain angelomedeiros-rc.surge.sh
+    - npx surge --project ./website/build/curso-gitlab-ci --domain ${CNAME}
   after_script:
     - echo "Angelo Medeiros - after_script"
   environment:
     name: development
-    url: http://angelomedeiros-rc.surge.sh
+    url: http://${CNAME}
   only:
     - develop
 
 deploy website-master:
   stage: deploy
+  variables:
+    CNAME: angelomedeiros.surge.sh
+    GIT_STRATEGY: none
   cache:
     key: site-package
     policy: pull
   script:
-    - npx surge --project ./website/build/curso-gitlab-ci --domain angelomedeiros.surge.sh
+    - npx surge --project ./website/build/curso-gitlab-ci --domain ${CNAME}
   after_script:
     - echo "Angelo Medeiros - after_script"
   environment:
     name: production
-    url: http://angelomedeiros.surge.sh
+    url: http://${CNAME}
   only:
     - master
