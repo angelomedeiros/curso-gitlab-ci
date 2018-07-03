@@ -38,14 +38,11 @@ build site:
     paths:
       - ./website/build/curso-gitlab-ci
   script:
-    # - ls -ltra
-    # - pwd
-    # - whoami
     - cd website
     - npm install
     - npm run build
 
-deploy website-develop:
+deploy website-develop: &deploy
   stage: deploy
   variables:
     CNAME: angelomedeiros-rc.surge.sh
