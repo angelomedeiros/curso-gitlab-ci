@@ -80,22 +80,15 @@ deploy website-master:
   only:
     - master
 
-deploy website-release: *deploy
-  # stage: deploy
-  # variables:
-  #   CNAME: $CI_COMMIT_REF_SLUG.angelomedeiros.surge.sh
-  #   GIT_STRATEGY: none
-  # cache:
-  #   key: site-package
-  #   policy: pull
-  # script:
-  #   - npx surge --project ./website/build/curso-gitlab-ci --domain ${CNAME}
-  # environment:
-  #   name: release/$CI_COMMIT_REF_SLUG
-  #   url: http://${CNAME}
-  #   on_stop: turnoff
-  # only:
-  #   - /^release\/[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$/
+deploy website-release: 
+  <<: *deploy
+  variables:
+    CNAME: $CI_COMMIT_REF_SLUG.angelomedeiros.surge.sh
+  environment:
+    name: release/$CI_COMMIT_REF_SLUG
+    on_stop: turnoff
+  only:
+    - /^release\/[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$/
 
 turnoff:
   stage: deploy
