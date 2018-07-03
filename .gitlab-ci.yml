@@ -67,7 +67,7 @@ deploy website-master:
   only:
     - master
 
-deploy website-release: 
+deploy website-release: &deploy-release
   <<: *deploy
   variables:
     CNAME: $CI_COMMIT_REF_SLUG.angelomedeiros.surge.sh
@@ -78,9 +78,7 @@ deploy website-release:
     - /^release\/[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$/
 
 turnoff:
-  <<: *deploy
-  variables:
-    CNAME: $CI_COMMIT_REF_SLUG.angelomedeiros.surge.sh
+  <<: *deploy-release
   script:
     - npx surge teardown ${CNAME}
   when: manual
