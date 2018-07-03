@@ -51,10 +51,7 @@ deploy website-develop: &deploy
     key: site-package
     policy: pull
   script:
-    - echo "Angelo Medeiros develop - script"
     - npx surge --project ./website/build/curso-gitlab-ci --domain ${CNAME}
-  after_script:
-    - echo "Angelo Medeiros develop - after_script"
   environment:
     name: development
     url: http://${CNAME}
@@ -62,21 +59,11 @@ deploy website-develop: &deploy
     - develop
 
 deploy website-master:
-  stage: deploy
+  <<: *deploy
   variables:
     CNAME: angelomedeiros.surge.sh
-    GIT_STRATEGY: none
-  cache:
-    key: site-package
-    policy: pull
-  script:
-    - echo "Angelo Medeiros master - script"
-    - npx surge --project ./website/build/curso-gitlab-ci --domain ${CNAME}
-  after_script:
-    - echo "Angelo Medeiros master - after_script"
   environment:
     name: production
-    url: http://${CNAME}
   only:
     - master
 
@@ -91,10 +78,9 @@ deploy website-release:
     - /^release\/[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$/
 
 turnoff:
-  stage: deploy
+  <<: *deploy
   variables:
     CNAME: $CI_COMMIT_REF_SLUG.angelomedeiros.surge.sh
-    GIT_STRATEGY: none
   script:
     - npx surge teardown ${CNAME}
   when: manual
